@@ -1,0 +1,8 @@
+{
+  "name": "Triplanio",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "c56d2b2f"
+}
