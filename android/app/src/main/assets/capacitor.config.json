@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Triplanio",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
