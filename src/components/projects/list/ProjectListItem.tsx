@@ -28,8 +28,6 @@ export const ProjectListItem: React.FC<ProjectListItemProps> = ({ name, date, im
                 <span>
                     <IonIcon slot="start" icon={eyeOffOutline}></IonIcon>
                 </span>
-                
-                
             </IonCardContent>
         </IonCard>
     );

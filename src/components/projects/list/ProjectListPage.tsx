@@ -17,13 +17,6 @@ const projects =[
   {name: "Crete 2024", date: "01.06.2022", image: "https://olympic.azureedge.net/cloudcache/9/5/e/8/4/0/95e84023e27979b9cae1470638c4fa4aab7362e7.jpg"},
 ];
 
-const view = {
-  place: {coordinate:{
-    lat: 64.25,
-    lng: -20,
-  },}
-  
-}
 export const ProjectListPage: React.FC<ProjectListPageProps> = () => {
     return (
         <IonPage>
@@ -37,10 +30,6 @@ export const ProjectListPage: React.FC<ProjectListPageProps> = () => {
                   </IonButtons>
               </IonToolbar>
             </IonHeader>
-            
-            <IonContent>
-              <MapView {...view} />
-            </IonContent>
             <IonContent>
               {
                 projects.map((project: any) => <ProjectListItem key={project.name} {...project}/>)

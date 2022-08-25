@@ -1,6 +1,9 @@
-import { IonBackButton, IonButton, IonButtons, IonContent, IonDatetime, IonDatetimeButton, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonList, IonModal, IonPage, IonReorder, IonReorderGroup, IonTitle, IonToolbar, useIonPicker } from "@ionic/react";
-import { pizza } from "ionicons/icons";
+import { IonAvatar, IonBackButton, IonBadge, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonChip, IonCol, IonContent, IonDatetime, IonDatetimeButton, IonFab, IonFabButton, IonFabList, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonListHeader, IonLoading, IonModal, IonPage, IonReorder, IonReorderGroup, IonRow, IonSkeletonText, IonText, IonThumbnail, IonTitle, IonToolbar, useIonPicker } from "@ionic/react";
+import { settings } from "cluster";
+import { add, airplaneOutline, bedOutline, chevronForwardOutline, eyeOffOutline, fastFoodOutline, gitBranchOutline, handRightOutline, locationOutline, logoVimeo, mapOutline, personCircleOutline, pizza, settingsOutline, shareOutline, trashBinOutline, walletOutline } from "ionicons/icons";
 import { useState } from "react";
+import AvatarGroup from "../../global/avatar/group/AvatarGroup";
+import Loading from "../../global/Loading";
 import { PlaceListItem } from "../../places/list/PlaceListItem";
 
 interface ProjectDetailPageProps {
@@ -11,56 +14,12 @@ interface ProjectDetailPageProps {
     match: any;
 }  
 
-const places = [
-    {label: "parek", edit: false}, 
-    {label: "parek2", edit:false}
-];
-
 export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ location, history, match, name, date }) => {
 
     const [text, setText] = useState<string>(name);
-    const [number, setNumber] = useState<number>();
     const [present] = useIonPicker();
-
-    const openPicker = async () => {
-        present({
-          columns: [
-            {
-              name: 'languages',
-              options: [
-                {
-                  text: 'JavaScript',
-                  value: 'javascript',
-                },
-                {
-                  text: 'TypeScript',
-                  value: 'typescript',
-                },
-                {
-                  text: 'Rust',
-                  value: 'rust',
-                },
-                {
-                  text: 'C#',
-                  value: 'c#',
-                },
-              ],
-            },
-          ],
-          buttons: [
-            {
-              text: 'Cancel',
-              role: 'cancel',
-            },
-            {
-              text: 'Confirm',
-              handler: (value) => {
-                window.alert(`You selected: ${value.languages.value}`);
-              },
-            },
-          ],
-        });
-      };
+    
+    const [loaded, setLoaded] = useState(true);
     
     return (
         <IonPage>
@@ -69,35 +28,186 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ location, 
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/projects" />
                     </IonButtons>
-                    <IonTitle>Project detail</IonTitle>
+                    <IonTitle>Project details</IonTitle>
                     <IonButtons slot="end">
-                        <IonButton >EDIT</IonButton>
+                        <IonButton ><IonIcon slot="icon-only" icon={shareOutline}/></IonButton>
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
-
-            <IonContent>
-                <IonList>
-                    <IonItem>
-                        <IonLabel position="floating">Project name</IonLabel>
-                        <IonInput value={text}></IonInput>
-                    </IonItem>
-
-                    <IonDatetimeButton style={{}} disabled={true} datetime="datetime"></IonDatetimeButton>
             
-                    <IonModal keepContentsMounted={true}>
-                        <IonDatetime disabled={true} id="datetime"></IonDatetime>
-                    </IonModal>
-
-                    <IonButton onClick={openPicker}>Open</IonButton>
-                </IonList>
-            </IonContent>
 
             <IonContent>
-                <IonReorderGroup disabled={false}>
-                    {places.map((place: any) => <PlaceListItem key={place.label} {...place}/>)}
-                </IonReorderGroup>
+                {loaded && (
+                    <>
+                    <IonCard >
+                        <IonCardHeader style={
+                        {
+                            backgroundImage: `linear-gradient(to left, rgba(245, 246, 252, 0.52), rgb(0 0 0 / 73%)), url('https://i0.wp.com/files.tripstodiscover.com/files/2016/11/bigstock-blue-lagoon-near-Reykjavik-Ic-83067611-1.jpg?resize=1200,628')`, 
+                            backgroundPosition: 'center',
+                            backgroundSize: 'cover'
+                        }
+                    }>
+                            <IonCardTitle>bipbup</IonCardTitle>
+                            <IonDatetimeButton disabled datetime="datetime"></IonDatetimeButton>
+                            <IonModal keepContentsMounted={true}>
+                                <IonDatetime value="2022-04-21T00:00:00" presentation="date"  id="datetime"></IonDatetime>
+                            </IonModal>
+
+                        </IonCardHeader>
+                        <IonCardContent style={{paddingTop: "15px"}}>
+                                
+                        </IonCardContent>
+                    </IonCard>
+                    <IonCard >
+                        <IonCardContent>
+                            <IonList>
+    
+                                
+                
+                            </IonList>
+                        </IonCardContent>
+                    </IonCard>
+                    <IonCard >
+                            <IonList>
+                            <IonItemSliding>
+                                    <IonItem href="#">
+                                        <IonIcon icon={gitBranchOutline} slot={"start"}/>
+                                        <IonLabel>Planning</IonLabel>
+                                        <IonIcon icon={chevronForwardOutline} slot={"end"} />
+                                    </IonItem>
+                                    <IonItemOptions side="end">
+                                        <IonItemOption onClick={() => {}}>
+                                            <IonIcon icon={trashBinOutline}/>
+                                        </IonItemOption>
+                                    </IonItemOptions>
+                                </IonItemSliding>
+                                
+                
+                            </IonList>
+                    </IonCard>
+                    <IonCard>
+                        <IonCardHeader>
+                            <IonText>Project content</IonText>
+                        </IonCardHeader>
+                            <IonList>
+                               
+
+                                <IonItemSliding>
+                                    <IonItem href="#">
+                                        <IonIcon icon={airplaneOutline} slot={"start"}/>
+                                        <IonLabel>Transportations</IonLabel>
+                                        <IonIcon icon={chevronForwardOutline} slot={"end"} />
+                                    </IonItem>
+                                    <IonItemOptions side="end">
+                                        <IonItemOption onClick={() => {}}>
+                                            <IonIcon icon={trashBinOutline}/>
+                                        </IonItemOption>
+                                    </IonItemOptions>
+                                </IonItemSliding>
+
+                                <IonItemSliding>
+                                    <IonItem href="#">
+                                        <IonIcon icon={bedOutline} slot={"start"}/>
+                                        <IonLabel>Accomodations</IonLabel>
+                                        <IonIcon icon={chevronForwardOutline} slot={"end"} />
+                                    </IonItem>
+                                    <IonItemOptions side="end">
+                                        <IonItemOption onClick={() => {}}>
+                                            <IonIcon icon={trashBinOutline}/>
+                                        </IonItemOption>
+                                    </IonItemOptions>
+                                </IonItemSliding>
+
+                                <IonItemSliding>
+                                    <IonItem href="#">
+                                        <IonIcon icon={handRightOutline} slot={"start"}/>
+                                        <IonLabel>Appointments</IonLabel>
+                                        <IonIcon icon={chevronForwardOutline} slot={"end"} />
+                                    </IonItem>
+                                    <IonItemOptions side="end">
+                                        <IonItemOption onClick={() => {}}>
+                                            <IonIcon icon={trashBinOutline}/>
+                                        </IonItemOption>
+                                    </IonItemOptions>
+                                </IonItemSliding>
+
+                                <IonItemSliding>
+                                    <IonItem href="#">
+                                        <IonIcon icon={walletOutline} slot={"start"}/>
+                                        <IonLabel>Rentals</IonLabel>
+                                        <IonIcon icon={chevronForwardOutline} slot={"end"} />
+                                    </IonItem>
+                                    <IonItemOptions side="end">
+                                        <IonItemOption onClick={() => {}}>
+                                            <IonIcon icon={trashBinOutline}/>
+                                        </IonItemOption>
+                                    </IonItemOptions>
+                                </IonItemSliding>
+
+                                <IonItemSliding>
+                                    <IonItem href="#">
+                                        <IonIcon icon={locationOutline} slot={"start"}/>
+                                        <IonLabel>Places</IonLabel>
+                                        <IonIcon icon={chevronForwardOutline} slot={"end"} />
+                                    </IonItem>
+                                    <IonItemOptions side="end">
+                                        <IonItemOption onClick={() => {}}>
+                                            <IonIcon icon={trashBinOutline}/>
+                                        </IonItemOption>
+                                    </IonItemOptions>
+                                </IonItemSliding>
+                            </IonList>
+                    </IonCard>
+
+                 </>)}
+
+                 {!loaded && (
+                    <>
+                        <IonCard>
+                            <IonCardHeader >
+                                <IonSkeletonText style={{width: "150px"}} animated={true} />
+                            </IonCardHeader>
+                            <IonCardContent>
+                                <IonSkeletonText animated={true} />
+                            </IonCardContent>
+                        </IonCard>
+                        <IonCard>
+                            <IonCardHeader >
+                                <IonSkeletonText style={{width: "150px"}}animated={true} />
+                            </IonCardHeader>
+                            <IonCardContent>
+                                <IonSkeletonText animated={true} />
+                            </IonCardContent>
+                        </IonCard>
+
+                        <IonCard>
+                            <IonList>
+                                <IonListHeader>
+                                    <IonSkeletonText style={{width: "150px"}} animated={true}/>
+                                </IonListHeader>
+                                
+                            </IonList>
+                            <IonCardHeader >
+                                <IonSkeletonText style={{width: "150px"}} animated={true} />
+                            </IonCardHeader>
+                            <IonCardContent>
+                                <IonSkeletonText animated={true} />
+                            </IonCardContent>
+                        </IonCard>
+                    </>
+                 )}
             </IonContent>
+
+                
+                <IonFab style={{marginBottom:"10px"}} vertical="bottom" horizontal="end" slot="fixed">
+                    <IonFabButton>
+                        <IonIcon icon={add} />
+                    </IonFabButton>
+                    <IonFabList side="start">
+                        <IonFabButton><IonIcon icon={logoVimeo} /></IonFabButton>
+                    </IonFabList>
+                </IonFab>
+                
         </IonPage>
     );
 }

@@ -1,4 +1,5 @@
 import { IonImg } from "@ionic/react";
+import "./MapView.css";
 
 interface MapViewProps {
     place: {
@@ -27,7 +28,7 @@ const MapView: React.FC<MapViewProps> = (place, size: any) => {
     )
 
     return (
-        <IonImg src={staticMapLink} />
+        <IonImg draggable={false} className="noselect" src={staticMapLink} />
     )
     
 }
