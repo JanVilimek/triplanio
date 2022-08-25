@@ -13,7 +13,7 @@ export const ProjectListItem: React.FC<ProjectListItemProps> = ({ name, date, im
     }
 
     return (
-        <IonCard onClick={routeToProjectDetail} href="/project" routerLink="" routerDirection="forward" style={
+        <IonCard onClick={routeToProjectDetail} href="/project" routerDirection="forward" style={
             {
                 backgroundImage: `linear-gradient(to left, rgba(245, 246, 252, 0.52), rgb(0 0 0 / 73%)), url('${image}')`, 
                 backgroundPosition: 'center',

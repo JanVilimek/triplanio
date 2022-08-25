@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { calendarNumberOutline, chatboxOutline, earOutline, earthOutline, ellipse, home, homeOutline, listOutline, personOutline, rocketOutline, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -33,6 +33,9 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { ProjectPage } from './components/projects/Project';
+import { ProjectListPage } from './components/projects/list/ProjectListPage';
+import { ProjectDetailPage } from './components/projects/detail/ProjectDetailPage';
 
 setupIonicReact();
 
@@ -47,27 +50,41 @@ const App: React.FC = () => (
           <Route exact path="/tab2">
             <Tab2 />
           </Route>
-          <Route path="/tab3">
+          <Route exact path="/tab3">
             <Tab3 />
           </Route>
+          <Route exact path="/projects" component={ProjectListPage}/>
+          <Route exact path="/project" component={ProjectDetailPage}/>
+          
           <Route exact path="/">
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
+
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="tab1" href="/projects">
+            <IonIcon icon={listOutline} />
+            <IonLabel>Projects</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonIcon icon={earthOutline} />
+            <IonLabel>Browse</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <IonIcon icon={homeOutline} />
+            <IonLabel>Home</IonLabel>
           </IonTabButton>
+          <IonTabButton tab="tab4" href="/tab4">
+            <IonIcon icon={chatboxOutline} />
+            <IonLabel>Chat</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab5" href="/profile">
+            <IonIcon icon={personOutline} />
+            <IonLabel>Profile</IonLabel>
+          </IonTabButton>
+          
         </IonTabBar>
+
       </IonTabs>
     </IonReactRouter>
   </IonApp>
