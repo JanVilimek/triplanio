@@ -5,6 +5,7 @@ import { useState } from "react";
 import AvatarGroup from "../../global/avatar/group/AvatarGroup";
 import Loading from "../../global/Loading";
 import { PlaceListItem } from "../../places/list/PlaceListItem";
+import StatisticsSegment from "../list/segments/StatisticsSegment";
 
 interface ProjectDetailPageProps {
     name: string;
@@ -67,6 +68,9 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ location, 
                             </IonList>
                         </IonCardContent>
                     </IonCard>
+                    
+                    <StatisticsSegment />
+
                     <IonCard >
                             <IonList>
                             <IonItemSliding>
@@ -158,6 +162,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ location, 
                                 </IonItemSliding>
                             </IonList>
                     </IonCard>
+
 
                  </>)}
 
